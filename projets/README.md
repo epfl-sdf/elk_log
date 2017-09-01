@@ -3,7 +3,6 @@
 - [Présentation](#présentation)
 - [Différents projets](#différents-projets)
   * [HTML](#html)
-  * [ZDYN](#zdyn)
   * [distrib](#distrib)
   * [wwp](#wwp)
 
@@ -16,8 +15,6 @@ Ce dossier contient les différents projets du dépôt elk_log.
 ## HTML
 
 Ce dossier contient les fichiers nécessaires au projets HTML ainsi que ces résultats.
-
-## ZDYN
 
 ## distrib
 

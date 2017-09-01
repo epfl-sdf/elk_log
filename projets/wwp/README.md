@@ -35,7 +35,7 @@ Le dossier wwp_test contient les fichiers liés aux premiers tests sur ce projet
 
 Afin de lancer les .conf de manière plus propre il suffit d'exécuter la commande suivante
 ```
-./wwp_all.sh.sh
+./wwp_all.sh
 ```
 
 Il suffit de préciser, en argument:
