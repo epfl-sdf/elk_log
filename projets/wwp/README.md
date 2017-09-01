@@ -6,9 +6,7 @@
     + [wwp_all_csv](#wwp_all_csv)
     + [wwp_all_grok](#wwp_all_grok)
     + [wwp_test](#wwp_test)
-  * [Fichiers](#fichiers)
-    + [Préfixe](#préfixe)
-    + [Suffixe](#suffixe)
+  * [Fichier](#fichier)
 
 # Présentation
 
@@ -33,30 +31,20 @@ Le dossier wwp_all_grok contient les fichiers liés à la solution avec filtre g
 Le dossier wwp_test contient les fichiers liés aux premiers tests sur ce projet. On avait commencé à ne travailler que sur
 1000 lignes.
 
-## Fichiers
+## Fichier
 
-Les différents fichiers respectent les règles de nommage suivantes
-
-### Préfixe
-
-* On commence par indiquer le nom du projet, ici
+Afin de lancer les .conf de manière plus propre il suffit d'exécuter la commande suivante
 ```
-wwp_*
+./wwp_all.sh
 ```
 
-* Ensuite le nombre de ligne correspondant à ce fichier, ici toutes
-```
-*all_*
-```
+Il suffit de préciser, en argument:
+1. Le serveur hôte qui va recevoir les données traitées et pouvoir les afficher sur Kibana
+1. L'index du fichier
+1. "reset" si on veut reseter le template, mais ce n'est plus nécessaire de reseter le template dans la dernière version de Kibana.
 
-* Si c'est un fichier particulier, par exemple, un fichier permettant de changer de template.
-```
-*template*
-```
+Une aide est disponible en entrant, comme seul argument, "-help".
 
-### Suffixe
-
-* Le suffixe indique quel type de fichier c'est, si c'est un fichier de config ou un fichier d'éxecution bash
-```
-*.conf     *.sh
-```
+<p align="justify">
+Il faut ce baser sur ce script pour pouvoir en faire un correspondant au projet voulu. Cependant, depuis Kibana 5.5 il n'est plus nécessaire de changer de template ou encore d'activer les variables d'environnement avec --allow-env.
+</p>
