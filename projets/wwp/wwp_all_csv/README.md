@@ -41,7 +41,7 @@ wwp_*
 
 ### Suffixe
 
-* Le suffixe indique quel type de fichier c'est, si c'est un fichier de config, un fichier d'éxecution bash ou encore un script json
+* Le suffixe indique quel type de fichier c'est, si c'est un fichier de config ou un script json
 ```
-*.conf     *.sh     *.jsonn
+*.conf     *.jsonn
 ```
