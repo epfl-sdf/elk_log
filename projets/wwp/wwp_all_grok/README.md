@@ -9,7 +9,7 @@
 # Présentation
 
 <p align="justify">Ce dossier contient les différents fichiers nécessaires au fonctionnement des tests sur les logs de wwp
-(erreurs du portage des sites en worpress) fonctionnant avec le filtre csv.</p>
+(erreurs du portage des sites en worpress) fonctionnant avec le filtre grok.</p>
 
 # Différents contenus
 
@@ -31,12 +31,17 @@ wwp_*
 
 * Le type de filtre utilisé
 ```
-*csv_*
+*grok_*
 ```
 
-* Si c'est un fichier particulier, par exemple, un fichier permettant de changer le mapping, ou encore un numéro de version
+* Si c'est un fichier particulier, par exemple, un fichier permettant de changer le mapping, ou encore si c'est un fichier final
 ```
-*mapping*     *2*
+*mapping*     *final*
+```
+
+* Si c'est un fichier particulier de base, on change un peu la nomenclature en expliquant ce que c'est, ici on a un fichier pour les patterns personnalisés
+```
+*pattern*
 ```
 
 ### Suffixe
