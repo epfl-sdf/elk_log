@@ -119,7 +119,7 @@ Contrairement à ce que laisse penser la dénomination de ces trois services, EL
 ## Récupération du dépôt
 On récupère le dépôt avec:
 ```
-git clone git@github.com:epfl-sdf/elk_hello_world.git
+git clone git@github.com:epfl-sdf/elk_log.git
 ```
 
 (cette commande nécessite la présence de `git` sur l'ordinateur)
