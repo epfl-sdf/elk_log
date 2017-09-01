@@ -1,6 +1,6 @@
 #!/bin/bash
 #petit script à lancer pour que cela tourne !
-#zf170808.1735
+#010917.1146
 
 
 export LS_HEAP_SIZE="80m"
@@ -24,11 +24,11 @@ fi
 
 # Test si reset ou non
 if [ "$3" == "reset" ] ; then
-        echo " reset du template"
+        echo "reset du template"
         curl -XDELETE http://$ELASTOC_SRV/_template/$ELASTOC_IDX
         curl -XPUT http://$ELASTOC_SRV/_template/$ELASTOC_IDX?pretty -d @wwp_all_grok_mapping.json
 else
-        echo " pas de reset du template"
+        echo "pas de reset du template"
 fi
 
-/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_hello_world/results_csv.conf
+/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/results_csv.conf
