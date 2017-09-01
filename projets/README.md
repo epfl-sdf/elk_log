@@ -14,7 +14,7 @@ Ce dossier contient les différents projets du dépôt elk_log.
 
 ## HTML
 
-Ce dossier contient les fichiers nécessaires au projets HTML ainsi que ces résultats.
+Le projet HTML donne un logs par page web des sites de l'EPFL pour tester sur wwp. Ce dossier contient les fichiers nécessaires au projets HTML ainsi que ces résultats.
 
 ## distrib
 
