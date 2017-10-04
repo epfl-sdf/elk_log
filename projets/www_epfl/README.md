@@ -3,7 +3,8 @@
 
 # Présentation
 
-<p align="justify">Ce dossier contient les différents script en bash nécessaires au bon fonctionnement du projet www_epfl.
+<p align="justify">
+Ce dossier contient les différents script en bash nécessaires au bon fonctionnement du projet www_epfl.<br>
 Etude du cas de la surcharge de la rentrée académique 2017 sur la home page de l'EPFL<br>
 Les logs de www.epfl.ch et de static.epfl.ch analysés ici se trouve un dossier plus haut dans:
 
