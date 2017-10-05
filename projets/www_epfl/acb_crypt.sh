@@ -1,6 +1,6 @@
 #!/bin/bash
 #Cryptage des credentials
-#zf170417.1528
+#zf171005.1547
 
 gpg2 -c ~/app_crendential_box.elk_log.sh
 mv ~/app_crendential_box.elk_log.sh .
