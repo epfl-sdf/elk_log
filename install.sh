@@ -26,13 +26,23 @@ sudo update-rc.d elasticsearch defaults 95 10
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable elasticsearch.service
 
+
+
+
+
 sudo apt-get -y install kibana
+
+exit
+
 
 sudo update-rc.d kibana defaults 95 10
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 
 sudo apt-get -y install logstash
+
+
+exit
 
 THEIP=$(/sbin/ifconfig ens18 | /bin/grep "inet ad" | /usr/bin/cut -f2 -d: | /usr/bin/awk '{print $1}')
 
