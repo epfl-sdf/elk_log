@@ -47,15 +47,25 @@ sudo apt-get -y install --allow-unauthenticated logstash
 #exit
 
 THEIP=$(/sbin/ifconfig ens18 | /bin/grep "inet ad" | /usr/bin/cut -f2 -d: | /usr/bin/awk '{print $1}')
-
+echo $THEIP
 echo "network.host: "$THEIP | sudo tee -a /etc/elasticsearch/elasticsearch.yml
 echo "network.bind_host: "$THEIP | sudo tee -a /etc/elasticsearch/elasticsearch.yml
 sudo service elasticsearch restart
 
 
-echo "server.host: "$THEIP | sudo tee -a /opt/kibana/config/kibana.yml
-echo "elasticsearch.url: http://"$THEIP":9200" | sudo tee -a /opt/kibana/config/kibana.yml
+echo "server.host: "$THEIP | sudo tee -a /etc/kibana/kibana.yml
+echo "elasticsearch.url: http://"$THEIP":9200" | sudo tee -a /etc/kibana/kibana.yml
 sudo service kibana restart
 
 sudo /usr/share/logstash/bin/logstash-plugin install logstash-filter-elasticsearch
 sudo chmod -R 777 /usr/share/logstash/data
+echo "
+#sudo sed -i -e 's/Xms2g/Xms300m/g' /etc/elasticsearch/jvm.options
+#sudo sed -i -e 's/Xmx2g/Xmx300m/g' /etc/elasticsearch/jvm.options
+
+#a faire toi meme
+#-Xms300m
+#-Xmx300m
+
+#sudo nano /etc/elasticsearch/jvm.options
+"
