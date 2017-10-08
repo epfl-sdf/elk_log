@@ -8,6 +8,7 @@ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | sudo t
 echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | sudo tee -a /etc/apt/sources.list
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+
 sudo apt-get update
 sudo apt-get -y install oracle-java8-installer
 
@@ -15,12 +16,13 @@ sudo apt-get -y install oracle-java8-set-default
 
 
 
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key ad$
-echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee$
-
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add-
+echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a  /etc/apt/sources.list.d/elastic-5.x.list
+sudo apt-key update
 sudo apt-get update
-
-sudo apt-get -y install elasticsearch
+sudo apt update
+#alors c'etait ici le probleme je crois :D
+sudo apt-get -y --allow-unauthenticated install elasticsearch
 
 sudo update-rc.d elasticsearch defaults 95 10
 sudo /bin/systemctl daemon-reload
@@ -30,19 +32,19 @@ sudo /bin/systemctl enable elasticsearch.service
 
 
 
-sudo apt-get -y install kibana
+sudo apt-get -y --allow-unauthenticated install kibana
 
-exit
+#exit
 
 
 sudo update-rc.d kibana defaults 95 10
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 
-sudo apt-get -y install logstash
+sudo apt-get -y install --allow-unauthenticated logstash
 
 
-exit
+#exit
 
 THEIP=$(/sbin/ifconfig ens18 | /bin/grep "inet ad" | /usr/bin/cut -f2 -d: | /usr/bin/awk '{print $1}')
 
