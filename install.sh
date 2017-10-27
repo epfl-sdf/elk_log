@@ -1,6 +1,6 @@
 #!/bin/bash
 #Petit script pour installer ELK avec la derniere version
-#310817.1556
+#171027.1457
 
 sudo apt-get -y install jruby
 
@@ -69,3 +69,6 @@ echo "
 
 #sudo nano /etc/elasticsearch/jvm.options
 "
+
+sudo rm -R /var/cache/oracle-jdk8-installer/
+
