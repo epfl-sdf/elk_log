@@ -10,7 +10,10 @@ Les logs de www.epfl.ch et de static.epfl.ch analysés ici se trouvent un dossie
 
 ../logs_www_epfl
 
-Pour les récupérer il faut faire tourner une fois le script install_logs.sh !
+Pour les récupérer il faut faire tourner une fois le script:
+```
+install_logs.sh !
+```
 </p>
 
 # Différents contenus
