@@ -1,0 +1,59 @@
+input {
+  file {
+    path => "/mnt/log_remote/exopgesrv34/www.epfl.ch/www.epfl.ch-ssl_access_ssl.log"
+    start_position => "end"
+    sincedb_path => "/dev/null"
+  }
+}
+
+
+filter {
+   grok {
+      match => { "message" => ["%{IPORHOST:[apache2][access][remote_ip]} - %{DATA:[apache2][access][user_name]} \[%{HTTPDATE:[apache2][access][time]}\] \"%{WORD:[apache2][access][method]} %{DATA:[apache2][access][url]} HTTP/%{NUMBER:[apache2][access][http_version]}\" %{NUMBER:[apache2][access][response_code]} %{NUMBER:[apache2][access][body_sent][bytes]}( \"%{DATA:[apache2][access][referrer]}\")?( \"%{DATA:[apache2][access][agent]}\")?",
+        "%{IPORHOST:[apache2][access][remote_ip]} - %{DATA:[apache2][access][user_name]} \\[%{HTTPDATE:[apache2][access][time]}\\] \"-\" %{NUMBER:[apache2][access][response_code]} -" ] }
+      remove_field => "message"
+   }
+   mutate {
+      add_field => { "read_timestamp" => "%{@timestamp}" }
+      copy => { "[apache2][access][remote_ip]" => "[apache2][access][remote_hostname]" }
+   }
+   date {
+      match => [ "[apache2][access][time]", "dd/MMM/YYYY:H:m:s Z" ]
+      remove_field => "[apache2][access][time]"
+   }
+   useragent {
+      source => "[apache2][access][agent]"
+      target => "[apache2][access][user_agent]"
+      remove_field => "[apache2][access][agent]"
+   }
+   geoip {
+      source => "[apache2][access][remote_ip]"
+      target => "[apache2][access][geoip]"
+   }
+
+  dns {
+    reverse => [ "[apache2][access][remote_hostname]" ]
+    action => "replace"
+    # CUSTOMIZE THE FOLLOWING VALUES AS REQUIRED BY YOUR ENVIRONMENT!
+#    nameserver => [ "128.178.15.8" ]
+#    hit_cache_size => 4096
+#    hit_cache_ttl => 900
+#    failed_cache_size => 512
+#    failed_cache_ttl => 900
+    timeout => 5
+  }
+
+}
+
+
+output {
+  elasticsearch {
+    index => "zuzu_logs171019_realtm_www_test_20171030.1628"
+    document_type => "www_logs"
+    hosts => "http://zf-2:9200"
+  }
+  stdout {
+    codec => json
+  }
+}
+
