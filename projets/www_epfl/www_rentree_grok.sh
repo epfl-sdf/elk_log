@@ -26,5 +26,5 @@ read -p "appuyer une touche pour démarrer Logstash"
 zIndex="zuzu_logs171019_all_www_20171030.1628"
 curl -XDELETE http://zf-2:9200/$zIndex
 
-/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/www_all_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
+/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/www_rentrée_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
 
