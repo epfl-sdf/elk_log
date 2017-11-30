@@ -1,6 +1,6 @@
 #!/bin/bash
 #petit script à lancer pour que cela tourne !
-#zf171129.1652
+#zf171130.1149
 
 
 THEIP=$(/sbin/ifconfig ens18 | /bin/grep "inet ad" | /usr/bin/cut -f2 -d: | /usr/bin/awk '{print $1}')
@@ -14,7 +14,7 @@ screen -x logstash    pour revenir à plusieurs dans screen
 CTRL+d                pour terminer screen
 screen -list          pour lister tous les screens en fonctionement
 
-On peur voir les résultat sur Kibana avec:
+On peut voir les résultat sur Kibana avec:
 http://$THEIP:5601
 "
 read -p "appuyer une touche pour démarrer Logstash"
@@ -23,8 +23,8 @@ read -p "appuyer une touche pour démarrer Logstash"
 #attention ceci efface toute la DB Elasticsearch
 #curl -XDELETE http://zf-2:9200/*
 
-zIndex="zuzu_logs171129_realtm_www_all_20171129.1653"
-#curl -XDELETE http://zf-2:9200/$zIndex
+zIndex="zuzu_logs171130_realtm_home_20171130.1149"
+curl -XDELETE http://zf-2:9200/$zIndex
 
-/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/www_all_realtm_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
+/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/home_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
 
