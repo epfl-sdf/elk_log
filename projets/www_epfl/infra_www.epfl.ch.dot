@@ -1,28 +1,29 @@
 digraph G {
         bgcolor=azure;
         node [shape=box, color=lightblue2, style=filled];
-        edge [arrowsize=2, color=gold];
-        "version zf171129.1744";
-        www -> SLB [label="https"];
-        SLB -> Home1 [label="http"];
-        SLB -> Home2 [label="http"];
-        SLB -> Static1 [label="http"];
-        SLB -> Static2 [label="http"];
-        www -> qi [label="https"];
-        www -> google [label="https"];
-        www -> twitter [label="https"];
+        edge [arrowsize=1, color=green];
+        version;
+        version [label="version zf171130.1142", shape= plaintext, style= ""];
+
+        www -> {SLB_Home; SLB_Static; EPFL; Internet;}
+        www_test -> {Test1; SLB_Static; EPFL; Internet;}
+        SLB_Home -> {Home1; Home2;}
+        SLB_Static -> {Static1; Static2;}
+        EPFL -> {qi;}
+        Internet -> {google; twitter;}
 
         www [label="https://www.epfl.ch"];
-        Home1 [label="Home1\n\nexopgesrv75\nApache\n2x cores\n4GB RAM\nmax 512 clients"];
-        Home2 [label="Home2\n\nexopgesrv76\nApache\n2x cores\n4GB RAM\nmax 512 clients"];
-        Static1 [label="Static1\n\nkissrv104\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
-        Static2 [label="Static2\n\nkissrv105\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
-        qi [label="qi.epfl.ch"];
-        twitter [label="twitter & twimg"];
-        google [label="google analytics"];
-
-        www_test -> Test1 [label="https"];
         www_test [label="https://www-test.epfl.ch"];
-        Test1 [label="Test1\n\nexopgesrv34\nApache\n2x cores\n4GB RAM\nmax 256? clients"];
+        SLB_Home [label="SLB Home (https)"];
+        SLB_Static [label="SLB Static (https)"];
+        EPFL [label="EPFL (https)", shape= ellipse];
+        Internet [label="Internet (https)", shape= ellipse, color=thistle1];
+        Home1 [label="Home1 (http)\n\nexopgesrv75\nApache\n2x cores\n4GB RAM\nmax 512 clients"];
+        Home2 [label="Home2 (http)\n\nexopgesrv76\nApache\n2x cores\n4GB RAM\nmax 512 clients"];
+        Static1 [label="Static1 (http/https)\n\nkissrv104\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
+        Static2 [label="Static2 (http/https)\n\nkissrv105\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
+        qi [label="qi.epfl.ch (https)"];
+        twitter [label="twitter & twimg (https)", color=thistle1];
+        google [label="google analytics (https)", color=thistle1];
+        Test1 [label="Test1 (https)\n\nexopgesrv34\nApache\n2x cores\n4GB RAM\nmax 256? clients"];
 }
-
