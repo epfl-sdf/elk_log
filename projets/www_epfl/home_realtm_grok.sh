@@ -23,7 +23,7 @@ read -p "appuyer une touche pour démarrer Logstash"
 #attention ceci efface toute la DB Elasticsearch
 #curl -XDELETE http://zf-2:9200/*
 
-zIndex="zuzu_logs171130_realtm_home_20171130.1149"
+zIndex="zuzu_realtm_home_20171130.1149"
 curl -XDELETE http://zf-2:9200/$zIndex
 
 /usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/home_realtm_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
