@@ -1,6 +1,6 @@
 #!/bin/bash
 #petit script à lancer pour que cela tourne !
-#zf171130.1149
+#zf171130.1201
 
 
 THEIP=$(/sbin/ifconfig ens18 | /bin/grep "inet ad" | /usr/bin/cut -f2 -d: | /usr/bin/awk '{print $1}')
@@ -26,5 +26,5 @@ read -p "appuyer une touche pour démarrer Logstash"
 zIndex="zuzu_logs171130_realtm_home_20171130.1149"
 curl -XDELETE http://zf-2:9200/$zIndex
 
-/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/home_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
+/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/home_realtm_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
 
