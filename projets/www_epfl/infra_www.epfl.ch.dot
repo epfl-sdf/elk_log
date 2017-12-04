@@ -3,7 +3,7 @@ digraph G {
         node [shape=box, color=lightblue2, style=filled];
         edge [arrowsize=1, color=green];
         version;
-        version [label="version zf171130.1142", shape= plaintext, style= ""];
+        version [label="version zf171204.1704", shape= plaintext, style= ""];
 
         www -> {SLB_Home; SLB_Static; EPFL; Internet;}
         www_test -> {Test1; SLB_Static; EPFL; Internet;}
@@ -20,8 +20,8 @@ digraph G {
         Internet [label="Internet (https)", shape= ellipse, color=thistle1];
         Home1 [label="Home1 (http)\n\nexopgesrv75\nApache\n2x cores\n4GB RAM\nmax 512 clients"];
         Home2 [label="Home2 (http)\n\nexopgesrv76\nApache\n2x cores\n4GB RAM\nmax 512 clients"];
-        Static1 [label="Static1 (http/https)\n\nkissrv104\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
-        Static2 [label="Static2 (http/https)\n\nkissrv105\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
+        Static1 [label="Static1 (http)\n\nkissrv104\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
+        Static2 [label="Static2 (http)\n\nkissrv105\nNginx\n1x cores\n2GB RAM\nmax ? clients"];
         qi [label="qi.epfl.ch (https)"];
         twitter [label="twitter & twimg (https)", color=thistle1];
         google [label="google analytics (https)", color=thistle1];
