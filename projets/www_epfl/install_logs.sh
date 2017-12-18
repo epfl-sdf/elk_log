@@ -1,6 +1,9 @@
 #!/bin/bash
 #petit script pour installer très facilement les logs qui se trouve sur le NAS de la SDF
-#zf171006.1512
+#zf171006.1512, zf171218.1647
+
+# si jamais pour mémoire: sshfs -o defer_permissions sdf@128.178.116.159:/ ./nassdf1/
+
 
 zPATHprojet=~/logs_www_epfl
 zPATHnas=/volume1/sdf/logs_www_epfl/170919
