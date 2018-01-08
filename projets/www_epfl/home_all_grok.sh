@@ -24,7 +24,7 @@ read -p "appuyer une touche pour démarrer Logstash"
 #curl -XDELETE http://zf-2:9200/*
 
 zIndex="home_all_www_20171222"
-curl -XDELETE http://zf-2:9200/$zIndex
+#curl -XDELETE http://zf-2:9200/$zIndex
 
-/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/home_all_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
+#/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/home_all_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
 
