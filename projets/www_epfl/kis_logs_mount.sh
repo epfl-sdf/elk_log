@@ -1,6 +1,6 @@
 #!/bin/bash
 #petit script pour monter très facilement les logs qui se trouvent sur les serveurs du KIS en sshfs
-#zf171129.1952
+#zf171129.1952, zf180131.1646
 
 
 #serveur pour http://www-test.epfl.ch
@@ -15,6 +15,22 @@ sshfs kis@exopgesrv75:/var/www/vhosts/www.epfl.ch/logs /mnt/log_remote/exopgesrv
 sudo mkdir -p /mnt/log_remote/exopgesrv76/www.epfl.ch
 sudo chown -R ubuntu:ubuntu /mnt/log_remote/exopgesrv76/
 sshfs kis@exopgesrv76:/var/www/vhosts/www.epfl.ch/logs /mnt/log_remote/exopgesrv76/www.epfl.ch
+
+#serveur pour https://test-www-backend.epfl.ch/
+sudo mkdir -p /mnt/log_remote/exopgesrv95/www.epfl.ch
+sudo chown -R ubuntu:ubuntu /mnt/log_remote/exopgesrv95/
+sshfs kis@exopgesrv95:/var/www/vhosts/www.epfl.ch/logs /mnt/log_remote/exopgesrv95/www.epfl.ch
+sudo mkdir -p /mnt/log_remote/exopgesrv96/www.epfl.ch
+sudo chown -R ubuntu:ubuntu /mnt/log_remote/exopgesrv96/
+sshfs kis@exopgesrv96:/var/www/vhosts/www.epfl.ch/logs /mnt/log_remote/exopgesrv96/www.epfl.ch
+
+#serveur pour https://test-www-proxy.epfl.ch/
+#sudo mkdir -p /mnt/log_remote/exopgesrv93/www.epfl.ch
+#sudo chown -R ubuntu:ubuntu /mnt/log_remote/exopgesrv93/
+#sshfs kis@exopgesrv93:/var/www/vhosts/www.epfl.ch/logs /mnt/log_remote/exopgesrv93/www.epfl.ch
+#sudo mkdir -p /mnt/log_remote/exopgesrv94/www.epfl.ch
+#sudo chown -R ubuntu:ubuntu /mnt/log_remote/exopgesrv94/
+#sshfs kis@exopgesrv94:/var/www/vhosts/www.epfl.ch/logs /mnt/log_remote/exopgesrv94/www.epfl.ch
 
 #serveur pour http://static.epfl.ch
 sudo mkdir -p /mnt/log_remote/kissrv104
