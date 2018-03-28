@@ -1,11 +1,11 @@
 #!/bin/bash
 #petit script à lancer pour que cela tourne !
-#zf180328.1502
+#zf180328.1418
 
-zNAME="static"
+zNAME="actu"
 
 THEIP=$(/sbin/ifconfig ens18 | /bin/grep "inet ad" | /usr/bin/cut -f2 -d: | /usr/bin/awk '{print $1}')
-echo -e "
+echo -e " 
 Afin de pouvoir garder logstash en marche tout en pouvant quitter la console, il serait bien de le faire tourner dans un 'screen' avec:
 screen -S $zNAME    pour entrer dans screen
 ./start.sh            pour lancer le serveur WEB dans screen
@@ -24,8 +24,8 @@ read -p "appuyer une touche pour démarrer Logstash"
 #attention ceci efface toute la DB Elasticsearch
 #curl -XDELETE http://zf-2:9200/*
 
-zIndex="static_realtm_20180328"
+zIndex="actu_realtm_20180328"
 curl -XDELETE http://zf-2:9200/$zIndex
 
-/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/static_realtm_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
+/usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/actu_realtm_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
 
