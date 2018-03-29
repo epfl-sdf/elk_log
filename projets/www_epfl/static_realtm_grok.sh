@@ -25,7 +25,7 @@ read -p "appuyer une touche pour démarrer Logstash"
 #curl -XDELETE http://zf-2:9200/*
 
 zIndex="static_realtm_20180328"
-curl -XDELETE http://zf-2:9200/$zIndex
+#curl -XDELETE http://zf-2:9200/$zIndex
 
 /usr/share/logstash/bin/logstash -f /home/ubuntu/elk_log/projets/www_epfl/static_realtm_grok.conf --path.data /home/ubuntu/elk_log/projets/www_epfl/logstash_data_$zIndex
 
