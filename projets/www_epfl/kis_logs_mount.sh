@@ -1,6 +1,6 @@
 #!/bin/bash
 #petit script pour monter très facilement les logs qui se trouvent sur les serveurs du KIS en sshfs
-#zf171129.1952, zf180328.1455
+#zf171129.1952, zf180502.1152
 
 
 #serveur pour http://www-test.epfl.ch
@@ -40,6 +40,15 @@ sshfs kis@actu1:/var/www/vhosts/actu.epfl.ch/logs /mnt/log_remote/actu1/actu.epf
 sudo mkdir -p /mnt/log_remote/actu2/actu.epfl.ch
 sudo chown -R ubuntu:ubuntu /mnt/log_remote/actu2/
 sshfs kis@actu2:/var/www/vhosts/actu.epfl.ch/logs /mnt/log_remote/actu2/actu.epfl.ch
+
+
+#serveur pour https://test-actu.epfl.ch/
+sudo mkdir -p /mnt/log_remote/test-actu1/actu.epfl.ch
+sudo chown -R ubuntu:ubuntu /mnt/log_remote/test-actu1/
+sshfs kis@test-django1:/var/www/vhosts/actu.epfl.ch/logs /mnt/log_remote/test-actu1/actu.epfl.ch
+sudo mkdir -p /mnt/log_remote/test-actu2/actu.epfl.ch
+sudo chown -R ubuntu:ubuntu /mnt/log_remote/test-actu2/
+sshfs kis@test-django2:/var/www/vhosts/actu.epfl.ch/logs /mnt/log_remote/test-actu2/actu.epfl.ch
 
 
 #serveur pour http://static.epfl.ch
