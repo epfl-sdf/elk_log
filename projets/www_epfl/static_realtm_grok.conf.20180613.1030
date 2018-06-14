@@ -1,14 +1,14 @@
 input {
   file {
     type => "access_log_http_kissrv104"
-    path => "/mnt/log_remote/kissrv104/static.epfl.ch.access.log"
+    path => "/mnt/log_remote/kissrv104/access.log"
     start_position => "end"
 #    start_position => "beginning"
     sincedb_path => "/dev/null"
   }
   file {
     type => "access_log_http_kissrv105"
-    path => "/mnt/log_remote/kissrv105/static.epfl.ch.access.log"
+    path => "/mnt/log_remote/kissrv105/access.log"
     start_position => "end"
 #    start_position => "beginning"
     sincedb_path => "/dev/null"
