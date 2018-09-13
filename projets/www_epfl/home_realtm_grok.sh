@@ -1,16 +1,16 @@
 #!/bin/bash
 #petit script à lancer pour que cela tourne !
-#zf171130.1201
+#zf171130.1201      zf180913.1443
 
 
 THEIP=$(/sbin/ifconfig ens18 | /bin/grep "inet ad" | /usr/bin/cut -f2 -d: | /usr/bin/awk '{print $1}')
 echo -e " 
 Afin de pouvoir garder logstash en marche tout en pouvant quitter la console, il serait bien de le faire tourner dans un 'screen' avec:
-screen -S logstash    pour entrer dans screen
+screen -S home        pour entrer dans screen
 ./start.sh            pour lancer le serveur WEB dans screen
 CTRL+a,d              pour sortir de screen en laissant tourner le serveur
-screen -r logstash    pour revenir dans screen
-screen -x logstash    pour revenir à plusieurs dans screen
+screen -r home        pour revenir dans screen
+screen -x home	      pour revenir à plusieurs dans screen
 CTRL+d                pour terminer screen
 screen -list          pour lister tous les screens en fonctionement
 
